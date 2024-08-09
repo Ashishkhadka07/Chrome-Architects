@@ -104,7 +104,12 @@ body {
   margin-bottom: 30px;
 }
 
-.cta-buttons .btn {
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn {
   display: inline-block;
   padding: 12px 24px;
   border-radius: 4px;
@@ -117,6 +122,7 @@ body {
   background-color: #333;
   color: #fff;
   margin-right: 20px;
+  border: 2px solid #fff;
 }
 
 .cta-buttons .btn-primary:hover {
@@ -128,7 +134,7 @@ body {
 .cta-buttons .btn-secondary {
   background-color: #f5f5f5;
   color: #333;
-  border: 1px solid #333;
+  border: 2px solid #333;
 }
 
 .cta-buttons .btn-secondary:hover {
@@ -146,8 +152,58 @@ body {
   border-radius: 18px;
 }
 
-/* Responsive Styles */
+/* About me Section Styles */
+.about-me {
+  background-color: #282c34;
+  color: white;
+  padding: 50px 20px;
+  font-family: Arial, sans-serif;
+}
 
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-image-container {
+  position: relative;
+  width: 45%;
+}
+
+.border {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  background-color: #26747d;
+  z-index: 1;
+}
+
+.profile-image {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.about-text {
+  width: 50%;
+}
+
+.about-text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
   .nav-links {
     display: none;
@@ -180,6 +236,18 @@ body {
 
   .hero-image {
     flex-basis: auto;
+  }
+  .about-content {
+    flex-direction: column;
+  }
+
+  .profile-image-container,
+  .about-text {
+    width: 100%;
+  }
+
+  .profile-image-container {
+    margin-bottom: 30px;
   }
 }
 
