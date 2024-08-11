@@ -48,3 +48,47 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+//Add this to handle slide animation
+document.addEventListener('DOMContentLoaded', function() {
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.querySelector('.prev');
+    const nextButton = document.querySelector('.next');
+    let currentIndex = 0;
+  
+    function updateSlider() {
+      const slideWidth = slides[0].offsetWidth;
+      slider.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+  
+    function showPrevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = slides.length - 1; // Go to last slide
+      }
+      updateSlider();
+    }
+  
+    function showNextSlide() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0; // Go back to first slide
+      }
+      updateSlider();
+    }
+  
+    prevButton.addEventListener('click', showPrevSlide);
+    nextButton.addEventListener('click', showNextSlide);
+  
+    // Optional: Auto-slide
+    setInterval(showNextSlide, 5000);
+  
+    // Update slider on window resize
+    window.addEventListener('resize', updateSlider);
+  
+    // Initial update
+    updateSlider();
+  });
